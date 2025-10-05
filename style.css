@@ -57,6 +57,12 @@ body {
     color: var(--text-light);
 }
 
+.music-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
 .star-1 { top: 5%; left: 10%; animation-delay: 0s; }
 .star-2 { top: 15%; right: 15%; animation-delay: 1s; }
 .star-3 { bottom: 20%; left: 20%; animation-delay: 2s; }
@@ -698,12 +704,15 @@ header {
 }
 
 .playlist-item.active::after {
-    content: '\f001';
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
+    content: '';
     position: absolute;
     right: 10px;
-    font-size: 1.2rem;
+    width: 20px;
+    height: 20px;
+    background-image: url('assets/music.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     animation: bounce 1s ease-in-out infinite;
 }
 
