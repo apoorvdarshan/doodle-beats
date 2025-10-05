@@ -42,13 +42,13 @@ const playIcon = document.getElementById('playIcon');
 const pauseIcon = document.getElementById('pauseIcon');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
-const shuffleBtn = document.getElementById('shuffleBtn');
-const repeatBtn = document.getElementById('repeatBtn');
+const shuffleBtn = document.getElementById('shuffleBtn'); // May be null if removed
+const repeatBtn = document.getElementById('repeatBtn'); // May be null if removed
 const muteBtn = document.getElementById('muteBtn');
 const volumeIcon = document.getElementById('volumeIcon');
 const mutedIcon = document.getElementById('mutedIcon');
 const volumeSlider = document.getElementById('volumeSlider');
-const downloadBtn = document.getElementById('downloadBtn');
+const downloadBtn = document.getElementById('downloadBtn'); // May be null if removed
 const progressBar = document.querySelector('.progress-bar');
 const progressFill = document.getElementById('progressFill');
 const progressKnob = document.getElementById('progressKnob');
@@ -245,16 +245,20 @@ function toggleShuffle() {
         // Find new index of current track
         currentTrackIndex = currentPlaylist.findIndex(track => track.src === currentTrack.src);
 
-        shuffleBtn.classList.add('active');
-        shuffleBtn.setAttribute('aria-label', 'Shuffle on');
+        if (shuffleBtn) {
+            shuffleBtn.classList.add('active');
+            shuffleBtn.setAttribute('aria-label', 'Shuffle on');
+        }
     } else {
         // Restore original playlist
         const currentTrack = currentPlaylist[currentTrackIndex];
         currentPlaylist = [...originalPlaylist];
         currentTrackIndex = originalPlaylist.findIndex(track => track.src === currentTrack.src);
 
-        shuffleBtn.classList.remove('active');
-        shuffleBtn.setAttribute('aria-label', 'Shuffle off');
+        if (shuffleBtn) {
+            shuffleBtn.classList.remove('active');
+            shuffleBtn.setAttribute('aria-label', 'Shuffle off');
+        }
     }
 
     renderPlaylist();
@@ -269,22 +273,24 @@ function toggleRepeat() {
 }
 
 function updateRepeatUI() {
+    if (!repeatBtn) return; // Button removed from UI
+
     const repeatIndicator = repeatBtn.querySelector('.repeat-indicator');
 
     switch (repeatMode) {
         case 0: // Off
             repeatBtn.classList.remove('active');
-            repeatIndicator.classList.add('hidden');
+            if (repeatIndicator) repeatIndicator.classList.add('hidden');
             repeatBtn.setAttribute('aria-label', 'Repeat off');
             break;
         case 1: // Repeat all
             repeatBtn.classList.add('active');
-            repeatIndicator.classList.add('hidden');
+            if (repeatIndicator) repeatIndicator.classList.add('hidden');
             repeatBtn.setAttribute('aria-label', 'Repeat all');
             break;
         case 2: // Repeat one
             repeatBtn.classList.add('active');
-            repeatIndicator.classList.remove('hidden');
+            if (repeatIndicator) repeatIndicator.classList.remove('hidden');
             repeatBtn.setAttribute('aria-label', 'Repeat one');
             break;
     }
@@ -530,11 +536,14 @@ function attachEventListeners() {
     playPauseBtn.addEventListener('click', togglePlayPause);
     prevBtn.addEventListener('click', previousTrack);
     nextBtn.addEventListener('click', nextTrack);
-    shuffleBtn.addEventListener('click', toggleShuffle);
-    repeatBtn.addEventListener('click', toggleRepeat);
+
+    // Only attach listeners if buttons exist
+    if (shuffleBtn) shuffleBtn.addEventListener('click', toggleShuffle);
+    if (repeatBtn) repeatBtn.addEventListener('click', toggleRepeat);
+    if (downloadBtn) downloadBtn.addEventListener('click', downloadTrack);
+
     muteBtn.addEventListener('click', toggleMute);
     volumeSlider.addEventListener('input', (e) => setVolume(e.target.value));
-    downloadBtn.addEventListener('click', downloadTrack);
 
     // Volume max button (if it exists in the HTML)
     const volumeMaxBtn = document.getElementById('volumeMaxBtn');

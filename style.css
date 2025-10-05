@@ -126,27 +126,23 @@ header {
 
 /* Player Card - Compact Design */
 .player-card {
-    background: var(--card-bg);
-    border: 4px solid var(--card-border);
-    border-radius: 12px;
-    padding: 20px;
+    background-image: url('assets/player-card.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 0;
+    padding: 35px 40px 55px 40px;
     position: relative;
-    box-shadow: 8px 8px 0 var(--shadow);
-    /* Hand-drawn wobbly border effect */
-    border-style: solid;
+    box-shadow: none;
     box-sizing: border-box;
+    aspect-ratio: 849 / 575;
+    max-width: 500px;
+    width: 100%;
 }
 
 .player-card::before {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    border: 1px dashed rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
-    pointer-events: none;
+    display: none;
 }
 
 /* Top Section - Album Art + Track Info */
@@ -873,12 +869,14 @@ footer {
     }
 
     .player-card {
-        padding: 20px 15px;
-        box-shadow: 6px 6px 0 var(--shadow);
+        padding: 30px 35px 50px 35px;
+        box-shadow: none;
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
         overflow: hidden;
+        aspect-ratio: 849 / 575;
+        background-size: 100% 100%;
     }
 
     .card-top {
@@ -1047,10 +1045,12 @@ footer {
     }
 
     .player-card {
-        padding: 18px 12px;
-        border-radius: 10px;
+        padding: 25px 30px 45px 30px;
+        border-radius: 0;
         box-sizing: border-box;
         width: 100%;
+        aspect-ratio: 849 / 575;
+        background-size: 100% 100%;
     }
 
     .card-top {
@@ -1206,8 +1206,10 @@ footer {
     }
 
     .player-card {
-        padding: 15px 10px;
+        padding: 20px 25px 40px 25px;
         box-sizing: border-box;
+        aspect-ratio: 849 / 575;
+        background-size: 100% 100%;
     }
 
     .playlist-container {
