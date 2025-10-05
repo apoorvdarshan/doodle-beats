@@ -309,6 +309,10 @@ function toggleMute() {
 function setVolume(value) {
     audioPlayer.volume = value / 100;
 
+    // Update volume slider background fill
+    const percent = value;
+    volumeSlider.style.background = `linear-gradient(to right, var(--text-dark) 0%, var(--text-dark) ${percent}%, var(--progress-bg) ${percent}%, var(--progress-bg) 100%)`;
+
     if (value == 0) {
         volumeIcon.classList.add('hidden');
         mutedIcon.classList.remove('hidden');
@@ -487,6 +491,40 @@ helpModal.addEventListener('click', (e) => {
     }
 });
 
+// Remove active class from all buttons when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.control-btn') && !e.target.closest('.icon-btn')) {
+        // Remove temporary active states (not the playing state)
+        document.querySelectorAll('.control-btn').forEach(btn => {
+            if (!btn.classList.contains('play-btn') || !playPauseBtn.classList.contains('playing')) {
+                btn.classList.remove('temp-active');
+            }
+        });
+    }
+});
+
+// Add click feedback for play button
+playPauseBtn.addEventListener('mousedown', () => {
+    playPauseBtn.classList.add('click-active');
+});
+
+playPauseBtn.addEventListener('mouseup', () => {
+    playPauseBtn.classList.remove('click-active');
+});
+
+playPauseBtn.addEventListener('mouseleave', () => {
+    playPauseBtn.classList.remove('click-active');
+});
+
+// Touch support for play button feedback
+playPauseBtn.addEventListener('touchstart', () => {
+    playPauseBtn.classList.add('click-active');
+});
+
+playPauseBtn.addEventListener('touchend', () => {
+    playPauseBtn.classList.remove('click-active');
+});
+
 // Attach all event listeners
 function attachEventListeners() {
     playPauseBtn.addEventListener('click', togglePlayPause);
@@ -497,6 +535,15 @@ function attachEventListeners() {
     muteBtn.addEventListener('click', toggleMute);
     volumeSlider.addEventListener('input', (e) => setVolume(e.target.value));
     downloadBtn.addEventListener('click', downloadTrack);
+
+    // Volume max button (if it exists in the HTML)
+    const volumeMaxBtn = document.getElementById('volumeMaxBtn');
+    if (volumeMaxBtn) {
+        volumeMaxBtn.addEventListener('click', () => {
+            volumeSlider.value = 100;
+            setVolume(100);
+        });
+    }
 
     // Keyboard accessibility for progress bar
     progressBar.addEventListener('keydown', (e) => {
