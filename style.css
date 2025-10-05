@@ -292,8 +292,8 @@ header {
 
 .control-btn {
     background: transparent;
-    border: 3px solid var(--card-border);
-    border-radius: 8px;
+    border: none;
+    border-radius: 0;
     width: 50px;
     height: 50px;
     display: flex;
@@ -301,26 +301,27 @@ header {
     justify-content: center;
     cursor: pointer;
     transition: all 0.2s ease;
+    padding: 0;
 }
 
 .play-btn {
     width: 60px;
     height: 60px;
-    background: var(--text-dark);
-    border: 3px solid var(--card-border);
+    background: transparent;
+    border: none;
     position: relative;
 }
 
 .play-btn .icon {
-    fill: var(--card-bg);
+    fill: transparent;
 }
 
 .play-btn.playing {
-    background: var(--text-dark);
+    background: transparent;
 }
 
 .play-btn.playing .icon {
-    fill: var(--card-bg);
+    fill: transparent;
 }
 
 .play-btn.click-active::after {
@@ -330,39 +331,18 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
+    background: transparent;
+    border-radius: 0;
     pointer-events: none;
 }
 
-.control-btn:hover:not(.play-btn) {
-    transform: scale(1.05);
-    background: rgba(0, 0, 0, 0.1);
-}
-
-.play-btn:hover {
-    transform: scale(1.05);
+.control-btn:hover {
+    transform: scale(1.1);
 }
 
 .control-btn:active {
     transform: scale(0.95);
     outline: none;
-}
-
-.control-btn:not(.play-btn):active {
-    background: var(--text-dark);
-}
-
-.control-btn:not(.play-btn):active .icon {
-    color: var(--card-bg);
-}
-
-.play-btn:active {
-    background: var(--text-dark) !important;
-}
-
-.play-btn:active .icon {
-    color: var(--card-bg) !important;
 }
 
 .control-btn:focus {
@@ -382,6 +362,23 @@ header {
 .play-btn .icon {
     font-size: 28px;
     color: var(--card-bg);
+}
+
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.play-btn .btn-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.volume-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
 }
 
 .hidden {
