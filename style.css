@@ -623,24 +623,12 @@ header {
     overflow-y: auto;
     padding-right: 5px;
     flex: 1;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
 }
 
 .playlist::-webkit-scrollbar {
-    width: 8px;
-}
-
-.playlist::-webkit-scrollbar-track {
-    background: var(--progress-bg);
-    border-radius: 10px;
-}
-
-.playlist::-webkit-scrollbar-thumb {
-    background: var(--card-border);
-    border-radius: 10px;
-}
-
-.playlist::-webkit-scrollbar-thumb:hover {
-    background: var(--text-dark);
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .playlist-item {
