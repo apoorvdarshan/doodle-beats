@@ -233,9 +233,12 @@ header {
 .progress-bar {
     flex: 1;
     height: 10px;
-    background: var(--progress-bg);
-    border: 2px solid var(--card-border);
-    border-radius: 10px;
+    background-image: url('assets/progress-bar.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 0;
     position: relative;
     cursor: pointer;
 }
@@ -252,8 +255,8 @@ header {
 
 .progress-fill {
     height: 100%;
-    background: var(--progress-fill);
-    border-radius: 8px;
+    background: transparent;
+    border-radius: 0;
     width: 0%;
     transition: width 0.1s linear;
 }
@@ -265,9 +268,11 @@ header {
     transform: translate(-50%, -50%);
     width: 18px;
     height: 18px;
-    background: var(--text-dark);
-    border: 2px solid var(--card-border);
-    border-radius: 50%;
+    background-image: url('assets/progress-bar-thumb-knob-ball.png');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    border-radius: 0;
     cursor: grab;
 }
 
@@ -434,9 +439,13 @@ header {
     height: 8px;
     -webkit-appearance: none;
     appearance: none;
-    background: linear-gradient(to right, var(--text-dark) 0%, var(--text-dark) 70%, var(--progress-bg) 70%, var(--progress-bg) 100%);
-    border: 2px solid var(--card-border);
-    border-radius: 10px;
+    background-image: url('assets/progress-bar.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
     cursor: pointer;
 }
 
@@ -445,9 +454,11 @@ header {
     appearance: none;
     width: 16px;
     height: 16px;
-    background: var(--text-dark);
-    border: 2px solid var(--card-border);
-    border-radius: 50%;
+    background-image: url('assets/progress-bar-thumb-knob-ball.png');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    border-radius: 0;
     cursor: pointer;
     outline: none;
 }
@@ -455,9 +466,11 @@ header {
 .volume-slider::-moz-range-thumb {
     width: 16px;
     height: 16px;
-    background: var(--text-dark);
-    border: 2px solid var(--card-border);
-    border-radius: 50%;
+    background-image: url('assets/progress-bar-thumb-knob-ball.png');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    border-radius: 0;
     cursor: pointer;
     outline: none;
 }

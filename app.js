@@ -315,10 +315,6 @@ function toggleMute() {
 function setVolume(value) {
     audioPlayer.volume = value / 100;
 
-    // Update volume slider background fill
-    const percent = value;
-    volumeSlider.style.background = `linear-gradient(to right, var(--text-dark) 0%, var(--text-dark) ${percent}%, var(--progress-bg) ${percent}%, var(--progress-bg) 100%)`;
-
     if (value == 0) {
         volumeIcon.classList.add('hidden');
         mutedIcon.classList.remove('hidden');
