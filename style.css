@@ -209,6 +209,12 @@ header {
     animation-delay: 0.5s;
 }
 
+.doodle-circle-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
 @keyframes wiggle {
     0%, 100% { transform: rotate(-5deg); }
     50% { transform: rotate(5deg); }
@@ -449,8 +455,8 @@ header {
 .volume-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 16px;
-    height: 16px;
+    width: 26px;
+    height: 26px;
     background-image: url('assets/progress-bar-thumb-knob-ball.png');
     background-size: cover;
     background-position: center;
@@ -461,8 +467,8 @@ header {
 }
 
 .volume-slider::-moz-range-thumb {
-    width: 16px;
-    height: 16px;
+    width: 26px;
+    height: 26px;
     background-image: url('assets/progress-bar-thumb-knob-ball.png');
     background-size: cover;
     background-position: center;
