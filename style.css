@@ -63,6 +63,36 @@ body {
     object-fit: contain;
 }
 
+.star-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.cloud-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.heart-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.sun-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.heart-title-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
 .star-1 { top: 5%; left: 10%; animation-delay: 0s; }
 .star-2 { top: 15%; right: 15%; animation-delay: 1s; }
 .star-3 { bottom: 20%; left: 20%; animation-delay: 2s; }
