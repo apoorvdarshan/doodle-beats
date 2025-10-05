@@ -644,14 +644,20 @@ header {
 }
 
 .search-input {
-    padding: 6px 30px 6px 10px;
-    border: 2px solid var(--card-border);
-    border-radius: 15px;
+    padding: 8px 50px 8px 15px;
+    border: none;
+    border-radius: 0;
     font-size: 0.9rem;
     font-family: inherit;
-    background: var(--progress-bg);
+    background-image: url('assets/searchbar.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
     color: var(--text-dark);
     transition: all 0.3s ease;
+    aspect-ratio: 1421 / 188;
+    width: 100%;
 }
 
 .search-input::placeholder {
@@ -661,22 +667,14 @@ header {
 .search-input:active,
 .search-input:focus {
     outline: none;
-    border-color: var(--text-dark);
-    background: var(--primary-bg);
 }
 
 .search-input:focus-visible {
     outline: none;
-    border-color: var(--text-dark);
-    background: var(--primary-bg);
 }
 
 .search-icon {
-    position: absolute;
-    right: 10px;
-    pointer-events: none;
-    font-size: 0.9rem;
-    color: var(--text-light);
+    display: none;
 }
 
 /* Playlist */
