@@ -357,7 +357,7 @@ header {
 }
 
 .control-btn:not(.play-btn):active .icon {
-    fill: var(--card-bg);
+    color: var(--card-bg);
 }
 
 .play-btn:active {
@@ -365,7 +365,7 @@ header {
 }
 
 .play-btn:active .icon {
-    fill: var(--card-bg) !important;
+    color: var(--card-bg) !important;
 }
 
 .control-btn:focus {
@@ -378,14 +378,13 @@ header {
 }
 
 .icon {
-    width: 24px;
-    height: 24px;
-    fill: var(--text-dark);
+    font-size: 24px;
+    color: var(--text-dark);
 }
 
 .play-btn .icon {
-    width: 28px;
-    height: 28px;
+    font-size: 28px;
+    color: var(--card-bg);
 }
 
 .hidden {
@@ -426,9 +425,8 @@ header {
 }
 
 .volume-btn .icon {
-    width: 20px;
-    height: 20px;
-    fill: var(--text-dark);
+    font-size: 20px;
+    color: var(--text-dark);
 }
 
 .volume-bar-container {
@@ -523,13 +521,12 @@ header {
 }
 
 .icon-btn.active .icon-small {
-    fill: var(--card-bg);
+    color: var(--card-bg);
 }
 
 .icon-small {
-    width: 20px;
-    height: 20px;
-    fill: var(--text-dark);
+    font-size: 20px;
+    color: var(--text-dark);
 }
 
 .repeat-indicator {
@@ -620,6 +617,7 @@ header {
     right: 10px;
     pointer-events: none;
     font-size: 0.9rem;
+    color: var(--text-light);
 }
 
 /* Playlist */
@@ -689,7 +687,9 @@ header {
 }
 
 .playlist-item.active::after {
-    content: '♪';
+    content: '\f001';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
     position: absolute;
     right: 10px;
     font-size: 1.2rem;
@@ -932,13 +932,11 @@ footer {
     }
 
     .icon {
-        width: 26px;
-        height: 26px;
+        font-size: 26px;
     }
 
     .play-btn .icon {
-        width: 32px;
-        height: 32px;
+        font-size: 32px;
     }
 
     .volume-container {
@@ -946,8 +944,7 @@ footer {
     }
 
     .volume-btn .icon {
-        width: 22px;
-        height: 22px;
+        font-size: 22px;
     }
 
     .volume-slider {
@@ -973,8 +970,7 @@ footer {
     }
 
     .icon-small {
-        width: 22px;
-        height: 22px;
+        font-size: 22px;
     }
 
     /* Playlist on mobile */
@@ -1117,13 +1113,11 @@ footer {
     }
 
     .icon {
-        width: 24px;
-        height: 24px;
+        font-size: 24px;
     }
 
     .play-btn .icon {
-        width: 30px;
-        height: 30px;
+        font-size: 30px;
     }
 
     .volume-container {
@@ -1132,8 +1126,7 @@ footer {
     }
 
     .volume-btn .icon {
-        width: 20px;
-        height: 20px;
+        font-size: 20px;
     }
 
     .bottom-controls {
@@ -1146,8 +1139,7 @@ footer {
     }
 
     .icon-small {
-        width: 20px;
-        height: 20px;
+        font-size: 20px;
     }
 
     .playlist-container {
