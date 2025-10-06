@@ -797,6 +797,27 @@ footer {
 .footer-text {
     color: var(--text-light);
     font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: var(--accent);
+    transform: scale(1.2);
 }
 
 /* Help Modal */
