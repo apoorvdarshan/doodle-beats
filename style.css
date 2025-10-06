@@ -59,7 +59,7 @@
     font-size: 2rem;
     color: var(--text-dark);
     margin-bottom: 30px;
-    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', cursive, sans-serif;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue';
 }
 
 .loader-bar-container {
@@ -88,7 +88,7 @@
     font-weight: bold;
     color: var(--text-dark);
     margin-bottom: 10px;
-    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', cursive, sans-serif;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue';
 }
 
 .loader-text {
@@ -109,7 +109,7 @@
 }
 
 body {
-    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', cursive, sans-serif;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue';
     background: var(--primary-bg);
     color: var(--text-dark);
     line-height: 1.6;
