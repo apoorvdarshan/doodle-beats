@@ -1,163 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doodle Beats 🎵</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doodle Beats</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <!-- Decorative doodle elements -->
     <div class="doodle-bg">
-        <div class="star star-1"><img src="assets/star.png" alt="Star" class="star-img"></div>
-        <div class="star star-2"><img src="assets/star.png" alt="Star" class="star-img"></div>
-        <div class="star star-3"><img src="assets/sparkles.png" alt="Sparkles" class="star-img"></div>
-        <div class="butterfly butterfly-1"><img src="assets/cloud.png" alt="Cloud" class="cloud-img"></div>
-        <div class="butterfly butterfly-2"><img src="assets/heart.png" alt="Heart" class="heart-img"></div>
-        <div class="music-note note-1"><img src="assets/music.png" alt="Music" class="music-img"></div>
-        <div class="music-note note-2"><img src="assets/music.png" alt="Music" class="music-img"></div>
-        <div class="music-note note-3"><img src="assets/music.png" alt="Music" class="music-img"></div>
+      <div class="star star-1">
+        <img src="assets/star.png" alt="Star" class="star-img" />
+      </div>
+      <div class="star star-2">
+        <img src="assets/star.png" alt="Star" class="star-img" />
+      </div>
+      <div class="star star-3">
+        <img src="assets/sparkles.png" alt="Sparkles" class="star-img" />
+      </div>
+      <div class="butterfly butterfly-1">
+        <img src="assets/cloud.png" alt="Cloud" class="cloud-img" />
+      </div>
+      <div class="butterfly butterfly-2">
+        <img src="assets/heart.png" alt="Heart" class="heart-img" />
+      </div>
+      <div class="music-note note-1">
+        <img src="assets/music.png" alt="Music" class="music-img" />
+      </div>
+      <div class="music-note note-2">
+        <img src="assets/music.png" alt="Music" class="music-img" />
+      </div>
+      <div class="music-note note-3">
+        <img src="assets/music.png" alt="Music" class="music-img" />
+      </div>
     </div>
 
     <div class="container">
-        <header>
-            <h1 class="app-title">
-                <span class="doodle-sun"><img src="assets/sun.png" alt="Sun" class="sun-img"></span>
-                Doodle Beats
-                <span class="doodle-heart"><img src="assets/heart.png" alt="Heart" class="heart-title-img"></span>
-            </h1>
-        </header>
+      <header>
+        <h1 class="app-title">
+          <span class="doodle-sun"
+            ><img src="assets/sun.png" alt="Sun" class="sun-img"
+          /></span>
+          Doodle Beats
+          <span class="doodle-heart"
+            ><img src="assets/heart.png" alt="Heart" class="heart-title-img"
+          /></span>
+        </h1>
+      </header>
 
-        <main class="player-container">
-            <!-- Now Playing Card -->
-            <div class="player-card" role="region" aria-label="Music Player">
-                <!-- Top Section: Album Art + Track Info -->
-                <div class="card-top">
-                    <div class="album-art-small">
-                        <img id="albumArt" src="" alt="Album Art" class="small-thumb">
-                    </div>
-                    <div class="track-info-compact">
-                        <h2 id="trackTitle" class="track-title">Select a track</h2>
-                        <p id="trackArtist" class="track-artist">—</p>
-                    </div>
-                    <div class="doodle-decorations">
-                        <span class="doodle-icon"><img src="assets/cat.png" alt="Cat" class="doodle-cat-img"></span>
-                        <span class="doodle-icon"><img src="assets/circle.png" alt="Doodle" class="doodle-circle-img"></span>
-                    </div>
-                </div>
-
-                <!-- Progress Bar with Times -->
-                <div class="progress-container">
-                    <span id="currentTime" class="time">1:33</span>
-                    <div class="progress-bar" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
-                        <div id="progressFill" class="progress-fill"></div>
-                        <div id="progressKnob" class="progress-knob"></div>
-                    </div>
-                    <span id="totalTime" class="time">-2:20</span>
-                </div>
-
-                <!-- Main Controls -->
-                <div class="controls">
-                    <button id="prevBtn" class="control-btn" aria-label="Previous track" title="Previous (P)">
-                        <img src="assets/previous-btn-control.png" alt="Previous" class="btn-icon">
-                    </button>
-
-                    <button id="playPauseBtn" class="control-btn play-btn" aria-label="Play" title="Play/Pause (Space)">
-                        <img id="playIcon" src="assets/play-btn.png" alt="Play" class="btn-icon play-icon">
-                        <img id="pauseIcon" src="assets/pause-btn.png" alt="Pause" class="btn-icon pause-icon hidden">
-                    </button>
-
-                    <button id="nextBtn" class="control-btn" aria-label="Next track" title="Next (N)">
-                        <img src="assets/next-btn-control.png" alt="Next" class="btn-icon">
-                    </button>
-                </div>
-
-                <!-- Volume Control Bar -->
-                <div class="volume-container">
-                    <button id="muteBtn" class="volume-btn" aria-label="Mute" title="Mute">
-                        <img id="volumeIcon" src="assets/volume-up.png" alt="Volume" class="volume-icon">
-                        <img id="mutedIcon" src="assets/volume-mute.png" alt="Muted" class="volume-icon hidden">
-                    </button>
-                    <div class="volume-bar-container">
-                        <div class="volume-bar">
-                            <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="70" aria-label="Volume" title="Volume (↑/↓)">
-                        </div>
-                    </div>
-                    <button id="volumeMaxBtn" class="volume-btn" aria-label="Max volume" title="Max volume">
-                        <img src="assets/volume-up.png" alt="Volume Max" class="volume-icon">
-                    </button>
-                </div>
+      <main class="player-container">
+        <!-- Now Playing Card -->
+        <div class="player-card" role="region" aria-label="Music Player">
+          <!-- Top Section: Album Art + Track Info -->
+          <div class="card-top">
+            <div class="album-art-small">
+              <img id="albumArt" src="" alt="Album Art" class="small-thumb" />
             </div>
-
-            <!-- Playlist Section -->
-            <div class="playlist-container" role="region" aria-label="Playlist">
-                <div class="playlist-header">
-                    <h3>Playlist <span class="playlist-count">(21)</span></h3>
-                    <div class="search-container">
-                        <input type="text" id="searchInput" class="search-input" placeholder="Search songs..." aria-label="Search playlist">
-                        <span class="search-icon"><i class="fas fa-search"></i></span>
-                    </div>
-                </div>
-
-                <ul id="playlist" class="playlist" role="listbox" aria-label="Track list">
-                    <!-- Playlist items will be populated by JavaScript -->
-                </ul>
+            <div class="track-info-compact">
+              <h2 id="trackTitle" class="track-title">Select a track</h2>
+              <p id="trackArtist" class="track-artist">—</p>
             </div>
-        </main>
-
-        <footer>
-            <p class="footer-text">Made with <i class="fas fa-heart"></i> by Apoorv Darshan</p>
-            <div class="social-links">
-                <a href="https://twitter.com/apoorvdarshan" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
-                    <i class="fab fa-x-twitter"></i>
-                </a>
-                <a href="https://linkedin.com/in/apoorvdarshan" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://youtube.com/@apoorvdarshan" target="_blank" rel="noopener noreferrer" title="YouTube">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="https://instagram.com/apoorvcode" target="_blank" rel="noopener noreferrer" title="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="mailto:ad13dtu@gmail.com" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://apoorvdarshan.com" target="_blank" rel="noopener noreferrer" title="Portfolio">
-                    <i class="fas fa-globe"></i>
-                </a>
-                <a href="https://github.com/apoorvdarshan/doodle-beats" target="_blank" rel="noopener noreferrer" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
+            <div class="doodle-decorations">
+              <span class="doodle-icon"
+                ><img src="assets/cat.png" alt="Cat" class="doodle-cat-img"
+              /></span>
+              <span class="doodle-icon"
+                ><img
+                  src="assets/circle.png"
+                  alt="Doodle"
+                  class="doodle-circle-img"
+              /></span>
             </div>
-        </footer>
+          </div>
+
+          <!-- Progress Bar with Times -->
+          <div class="progress-container">
+            <span id="currentTime" class="time">1:33</span>
+            <div
+              class="progress-bar"
+              role="slider"
+              aria-label="Seek"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+              tabindex="0"
+            >
+              <div id="progressFill" class="progress-fill"></div>
+              <div id="progressKnob" class="progress-knob"></div>
+            </div>
+            <span id="totalTime" class="time">-2:20</span>
+          </div>
+
+          <!-- Main Controls -->
+          <div class="controls">
+            <button
+              id="prevBtn"
+              class="control-btn"
+              aria-label="Previous track"
+              title="Previous (P)"
+            >
+              <img
+                src="assets/previous-btn-control.png"
+                alt="Previous"
+                class="btn-icon"
+              />
+            </button>
+
+            <button
+              id="playPauseBtn"
+              class="control-btn play-btn"
+              aria-label="Play"
+              title="Play/Pause (Space)"
+            >
+              <img
+                id="playIcon"
+                src="assets/play-btn.png"
+                alt="Play"
+                class="btn-icon play-icon"
+              />
+              <img
+                id="pauseIcon"
+                src="assets/pause-btn.png"
+                alt="Pause"
+                class="btn-icon pause-icon hidden"
+              />
+            </button>
+
+            <button
+              id="nextBtn"
+              class="control-btn"
+              aria-label="Next track"
+              title="Next (N)"
+            >
+              <img
+                src="assets/next-btn-control.png"
+                alt="Next"
+                class="btn-icon"
+              />
+            </button>
+          </div>
+
+          <!-- Volume Control Bar -->
+          <div class="volume-container">
+            <button
+              id="muteBtn"
+              class="volume-btn"
+              aria-label="Mute"
+              title="Mute"
+            >
+              <img
+                id="volumeIcon"
+                src="assets/volume-up.png"
+                alt="Volume"
+                class="volume-icon"
+              />
+              <img
+                id="mutedIcon"
+                src="assets/volume-mute.png"
+                alt="Muted"
+                class="volume-icon hidden"
+              />
+            </button>
+            <div class="volume-bar-container">
+              <div class="volume-bar">
+                <input
+                  type="range"
+                  id="volumeSlider"
+                  class="volume-slider"
+                  min="0"
+                  max="100"
+                  value="70"
+                  aria-label="Volume"
+                  title="Volume (↑/↓)"
+                />
+              </div>
+            </div>
+            <button
+              id="volumeMaxBtn"
+              class="volume-btn"
+              aria-label="Max volume"
+              title="Max volume"
+            >
+              <img
+                src="assets/volume-up.png"
+                alt="Volume Max"
+                class="volume-icon"
+              />
+            </button>
+          </div>
+        </div>
+
+        <!-- Playlist Section -->
+        <div class="playlist-container" role="region" aria-label="Playlist">
+          <div class="playlist-header">
+            <h3>Playlist <span class="playlist-count">(21)</span></h3>
+            <div class="search-container">
+              <input
+                type="text"
+                id="searchInput"
+                class="search-input"
+                placeholder="Search songs..."
+                aria-label="Search playlist"
+              />
+              <span class="search-icon"><i class="fas fa-search"></i></span>
+            </div>
+          </div>
+
+          <ul
+            id="playlist"
+            class="playlist"
+            role="listbox"
+            aria-label="Track list"
+          >
+            <!-- Playlist items will be populated by JavaScript -->
+          </ul>
+        </div>
+      </main>
+
+      <footer>
+        <p class="footer-text">
+          Made with <i class="fas fa-heart"></i> by Apoorv Darshan
+        </p>
+        <div class="social-links">
+          <a
+            href="https://twitter.com/apoorvdarshan"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="X (Twitter)"
+          >
+            <i class="fab fa-x-twitter"></i>
+          </a>
+          <a
+            href="https://linkedin.com/in/apoorvdarshan"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            href="https://youtube.com/@apoorvdarshan"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="YouTube"
+          >
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a
+            href="https://instagram.com/apoorvcode"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="mailto:ad13dtu@gmail.com" title="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a
+            href="https://apoorvdarshan.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Portfolio"
+          >
+            <i class="fas fa-globe"></i>
+          </a>
+          <a
+            href="https://github.com/apoorvdarshan/doodle-beats"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </footer>
     </div>
 
     <!-- Keyboard Shortcuts Help Modal -->
-    <div id="helpModal" class="modal hidden" role="dialog" aria-labelledby="helpTitle" aria-modal="true">
-        <div class="modal-content">
-            <button id="closeModal" class="close-btn" aria-label="Close"><i class="fas fa-times"></i></button>
-            <h2 id="helpTitle"><i class="fas fa-keyboard"></i> Keyboard Shortcuts</h2>
-            <dl class="shortcuts-list">
-                <dt>Space</dt><dd>Play / Pause</dd>
-                <dt>→</dt><dd>Skip forward 5s</dd>
-                <dt>←</dt><dd>Skip backward 5s</dd>
-                <dt>↑</dt><dd>Volume up</dd>
-                <dt>↓</dt><dd>Volume down</dd>
-                <dt>N</dt><dd>Next track</dd>
-                <dt>P</dt><dd>Previous track</dd>
-                <dt>S</dt><dd>Toggle shuffle</dd>
-                <dt>R</dt><dd>Cycle repeat modes</dd>
-                <dt>M</dt><dd>Mute / Unmute</dd>
-                <dt>?</dt><dd>Show this help</dd>
-            </dl>
-        </div>
+    <div
+      id="helpModal"
+      class="modal hidden"
+      role="dialog"
+      aria-labelledby="helpTitle"
+      aria-modal="true"
+    >
+      <div class="modal-content">
+        <button id="closeModal" class="close-btn" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+        <h2 id="helpTitle">
+          <i class="fas fa-keyboard"></i> Keyboard Shortcuts
+        </h2>
+        <dl class="shortcuts-list">
+          <dt>Space</dt>
+          <dd>Play / Pause</dd>
+          <dt>→</dt>
+          <dd>Skip forward 5s</dd>
+          <dt>←</dt>
+          <dd>Skip backward 5s</dd>
+          <dt>↑</dt>
+          <dd>Volume up</dd>
+          <dt>↓</dt>
+          <dd>Volume down</dd>
+          <dt>N</dt>
+          <dd>Next track</dd>
+          <dt>P</dt>
+          <dd>Previous track</dd>
+          <dt>S</dt>
+          <dd>Toggle shuffle</dd>
+          <dt>R</dt>
+          <dd>Cycle repeat modes</dd>
+          <dt>M</dt>
+          <dd>Mute / Unmute</dd>
+          <dt>?</dt>
+          <dd>Show this help</dd>
+        </dl>
+      </div>
     </div>
 
     <!-- Audio Element -->
     <audio id="audioPlayer" preload="metadata"></audio>
 
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
