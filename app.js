@@ -2,6 +2,122 @@
 // DOODLE BEATS - Music Player Logic
 // ========================================
 
+// ========================================
+// PRELOADER
+// ========================================
+(function() {
+    const loader = document.getElementById('loader');
+    const loaderBar = document.getElementById('loaderBar');
+    const loaderPercentage = document.getElementById('loaderPercentage');
+
+    // All assets to preload
+    const imagesToPreload = [
+        'assets/player-card.png',
+        'assets/playlist-container.png',
+        'assets/progress-bar.png',
+        'assets/progress-bar-thumb-knob-ball.png',
+        'assets/play-btn.png',
+        'assets/pause-btn.png',
+        'assets/next-btn-control.png',
+        'assets/previous-btn-control.png',
+        'assets/volume-up.png',
+        'assets/volume-mute.png',
+        'assets/cat.png',
+        'assets/circle.png',
+        'assets/music.png',
+        'assets/star.png',
+        'assets/sparkles.png',
+        'assets/cloud.png',
+        'assets/heart.png',
+        'assets/sun.png',
+        'assets/searchbar.png',
+        'assets/favicon.png',
+        // Thumbnails
+        'assets/thumbnails/505.jpg',
+        'assets/thumbnails/WILDFLOWER.jpg',
+        'assets/thumbnails/Diet Mountain Dew.jpg',
+        'assets/thumbnails/welcome and goodbye.jpg',
+        'assets/thumbnails/Can\'t Help Falling in Love.jpg',
+        'assets/thumbnails/Something About You.jpg',
+        'assets/thumbnails/Golden Brown.jpg',
+        'assets/thumbnails/Iris.jpg',
+        'assets/thumbnails/I Think They Call This Love - Cover.jpg',
+        'assets/thumbnails/I Wanna Be Yours.jpg',
+        'assets/thumbnails/Love Story.jpg',
+        'assets/thumbnails/Those Eyes.jpg',
+        'assets/thumbnails/No. 1 Party Anthem.jpg',
+        'assets/thumbnails/Love Me Not (feat. Rex Orange County).jpg',
+        'assets/thumbnails/Line Without a Hook.jpg',
+        'assets/thumbnails/No One Noticed.jpg',
+        'assets/thumbnails/Every Breath You Take.jpg',
+        'assets/thumbnails/There Is a Light That Never Goes Out - 2017 Master.jpg',
+        'assets/thumbnails/did i tell u that i miss u.jpg',
+        'assets/thumbnails/blue - slowed down.jpg',
+        'assets/thumbnails/back to friends.jpg'
+    ];
+
+    const audioToPreload = [
+        'assets/music/505.mp3',
+        'assets/music/Billie Eilish - WILDFLOWER (Official Lyric Video) - BillieEilishVEVO (youtube).mp3',
+        'assets/music/Diet Mountain Dew - Lana Del Rey (youtube).mp3',
+        'assets/music/Dream, Ivory - Welcome and Goodbye - David Dean Burkhart (youtube).mp3',
+        'assets/music/Elvis Presley - Can\'t Help Falling in Love (Lyrics) - 7clouds (youtube).mp3',
+        'assets/music/Eyedress & Dent May - Something About You - David Dean Burkhart (youtube).mp3',
+        'assets/music/Golden Brown - The Stranglers - Μουσικές Περιηγήσεις (youtube).mp3',
+        'assets/music/Goo Goo Dolls – Iris [Official Music Video] [4K Remaster] - Goo Goo Dolls (youtube) (1).mp3',
+        'assets/music/I Think They Call This Love (Cover) - Matthew Ifield (youtube).mp3',
+        'assets/music/I Wanna Be Yours - Arctic Monkeys (youtube).mp3',
+        'assets/music/Indila - Love Story (Lyrics) - Pizza Music (youtube).mp3',
+        'assets/music/New West - Those Eyes (Lyrics) - Dan Music (youtube).mp3',
+        'assets/music/No. 1 Party Anthem - Arctic Monkeys (youtube).mp3',
+        'assets/music/Ravyn Lenae - Love Me Not - Minimal Sounds (youtube).mp3',
+        'assets/music/Ricky Montgomery - Line Without a Hook (Official Lyric Video) - Ricky Montgomery (youtube).mp3',
+        'assets/music/The Marías - No One Noticed (Visualizer) - The Marías (youtube).mp3',
+        'assets/music/The Police - Every Breath You Take (Visualiser) - ThePoliceVEVO (youtube).mp3',
+        'assets/music/There Is a Light That Never Goes Out (2011 Remaster) - The Smiths (youtube).mp3',
+        'assets/music/adore - did i tell u that i miss u (lyric video) - adore (youtube).mp3',
+        'assets/music/blue (slowed down) - yung kai (youtube).mp3',
+        'assets/music/sombr - back to friends (official video) - sombr (youtube).mp3'
+    ];
+
+    const totalAssets = imagesToPreload.length + audioToPreload.length;
+    let loadedAssets = 0;
+
+    function updateProgress() {
+        loadedAssets++;
+        const percentage = Math.round((loadedAssets / totalAssets) * 100);
+        loaderBar.style.width = percentage + '%';
+        loaderPercentage.textContent = percentage + '%';
+
+        if (loadedAssets === totalAssets) {
+            // All assets loaded
+            setTimeout(() => {
+                loader.classList.add('hidden');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 300);
+        }
+    }
+
+    // Preload images
+    imagesToPreload.forEach(src => {
+        const img = new Image();
+        img.onload = updateProgress;
+        img.onerror = updateProgress; // Still count as loaded even if error
+        img.src = src;
+    });
+
+    // Preload audio (just metadata, not full files)
+    audioToPreload.forEach(src => {
+        const audio = new Audio();
+        audio.preload = 'metadata';
+        audio.onloadedmetadata = updateProgress;
+        audio.onerror = updateProgress;
+        audio.src = src;
+    });
+})();
+
 // Track data - 21 songs with their metadata (matched to actual files)
 const tracks = [
     { src: 'assets/music/505.mp3', title: '505', artist: 'Arctic Monkeys', thumb: 'assets/thumbnails/505.jpg' },
