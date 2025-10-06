@@ -2,7 +2,7 @@
 
 A whimsical, hand-drawn style music player featuring 21 curated tracks. Built with vanilla HTML, CSS, and JavaScript for a delightful listening experience.
 
-![Doodle Beats](assets/favicon.png)
+<img height="100" alt="favicon" src="https://github.com/user-attachments/assets/f8a41380-f3d2-4955-b1f7-a829352d076c" />
 
 ## ✨ Features
 
