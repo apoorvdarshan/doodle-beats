@@ -2,6 +2,8 @@
 
 A whimsical, hand-drawn style music player featuring 21 curated tracks. Built with vanilla HTML, CSS, and JavaScript for a delightful listening experience.
 
+**Live demo:** [doodle-beats.apoorvdarshan.com](https://doodle-beats.apoorvdarshan.com)
+
 ## 🚀 Getting Started
 
 ### Installation
